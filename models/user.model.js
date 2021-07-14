@@ -4,37 +4,37 @@ const db = require('../config/db.config');
 const user=db.define('user',{
 firstname:{
     type:Sequelize.STRING,
-    required: true
+    allowNull: false
 } ,
 lastname: {
     type:Sequelize.STRING,
-    required: true
+    allowNull: false
 },
 photo:{
     type:Sequelize.BLOB
 },
 email: {
     type:Sequelize.STRING,
-    required: true,
+    allowNull: false,
     unique: true
 },
 password: {
     type:Sequelize.STRING,
-    required: true
+    allowNull: false
 },
 role: {
     type:Sequelize.STRING,
-    required: true
+    allowNull: false
 },
 status:{
     type:Sequelize.STRING
 },
 personalNumber: {
-    type:Sequelize
+    type:Sequelize.INTEGER
 },
 address: {
     type:Sequelize.STRING
 }
 })
-user.sync = true;
+user.sync({alter:true});
 module.exports = user;

@@ -1,35 +1,24 @@
-const { QueryInterface } = require('sequelize');
 const Sequelize= require('sequelize');
 const db = require('../config/db.config');
 
 const zone=db.define('zone',{
-    id:{
-        allowNull=false,
-        autoincrement=true,
-        primaryKey: true,
-        type:Sequelize.INTEGER,
-    },
     name:{
         type:Sequelize.STRING,
-        required: true
+        allowNull: false
     },
     neighborhood: {
         type:Sequelize.STRING,
-        required: true
+        allowNull: false
     },
     color:{
-        required:true,
+        allowNull: false,
         type:Sequelize.STRING
     },
     agent_ids: {
         type:Sequelize.STRING,
-        allowNull:false,
-        references:{
-            model:'users',
-            key:'id'
-        }
         
+        allowNull: false
     }
 })
-zone.sync= true;
+zone.sync();
 module.exports=zone;

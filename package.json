@@ -9,9 +9,11 @@
     "email": "andreihulubina99@icloud.com"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.13.3",
     "mocha": "^3.0.0",
+    "nodemon": "^2.0.12",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.5"
@@ -25,6 +27,6 @@
   },
   "scripts": {
     "build": "nyc --reporter=cobertura --reporter=html ./node_modules/.bin/mocha tests/**/*.js --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST-RESULTS.xml",
-    "dev":"nodemon server.js"
+    "develop": "nodemon server.js"
   }
 }
